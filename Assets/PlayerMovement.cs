@@ -10,6 +10,20 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float playerSpeed;
 
+    //Fuerza del brinco
+    public float verticalSpeed;
+
+    //Estas variables nos ayudaran a detectar un piso
+    //Para que mi personaje no salte en el aire, si no hasta que detecte el suelo
+    public Transform groundCheck;
+    public float checkradius;
+    public LayerMask whatIsground;
+
+    private bool grounded;
+
+    //esta variable 
+    private bool doubleJumped;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,10 +31,26 @@ public class PlayerMovement : MonoBehaviour
         playerAnim = GetComponent<Animator>();
     }
 
+    void FixedUpdate()
+    {
+        grounded = Physics2D.OverlapCircle(groundCheck.position, checkradius, whatIsground);
+        
+        
+    }
+
     // Update is called once per frame
     void Update()
     {
+        //No es necesario abrir mis corchetes puesto que si solo se ocupara una linea de código
+        //Puedo escribirlo sin ningun problema asi tal cuál
+        if (grounded)
+
+            doubleJumped = false;
+
+
+        PlayerJump();
         PlayerMov();
+        
         
     }
 
@@ -42,5 +72,22 @@ public class PlayerMovement : MonoBehaviour
         playerAnim.SetFloat("speed", Mathf.Abs(playerRB.velocity.x));
 
         
+    }
+
+    public void PlayerJump()
+    {
+        //double jump es falso y tampoco el jugador esta en el grounded
+        //si estas dos condiciones son falsas puedo hacer el double jump
+        if (Input.GetButtonDown("Jump") && grounded)
+        {
+            playerRB.velocity = new Vector2(playerRB.velocity.x, verticalSpeed);
+            doubleJumped = true;
+        }
+        if (Input.GetButtonDown("Jump") && !doubleJumped && !grounded)
+        {
+            playerRB.velocity = new Vector2(playerRB.velocity.x, verticalSpeed);
+            doubleJumped = true;
+        }
+
     }
 }

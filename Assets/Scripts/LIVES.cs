@@ -21,6 +21,6 @@ public class LIVES : MonoBehaviour
 
     public void CambioVida(int pos)
     {
-        this.GetComponent<Image>().sprite = corazones[pos];
+        //this.GetComponent<Image>().sprite = corazones[pos];
     }
 }

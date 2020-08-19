@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 599927}
   - component: {fileID: 599926}
   - component: {fileID: 599925}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PISO_9_LAVA (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,7 +237,7 @@ GameObject:
   m_Component:
   - component: {fileID: 97764917}
   - component: {fileID: 97764916}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PISO_5_LAVA (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -318,7 +318,7 @@ GameObject:
   - component: {fileID: 137773808}
   - component: {fileID: 137773807}
   - component: {fileID: 137773809}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PISO_5_LAVA (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -587,7 +587,7 @@ Transform:
   m_LocalScale: {x: 0.060974747, y: 0.060974747, z: 0.060974747}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &256788768
 Animator:
@@ -659,7 +659,7 @@ GameObject:
   - component: {fileID: 284818741}
   - component: {fileID: 284818740}
   - component: {fileID: 284818742}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PISO_9_LAVA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -765,7 +765,7 @@ GameObject:
   m_Component:
   - component: {fileID: 414029622}
   - component: {fileID: 414029621}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PISO_9_LAVA (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1398,7 +1398,7 @@ GameObject:
   - component: {fileID: 611062518}
   - component: {fileID: 611062517}
   - component: {fileID: 611062516}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PISO_9_LAVA (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1492,7 +1492,7 @@ Transform:
   m_LocalScale: {x: 0.82, y: 0.82, z: 0.82}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &615169915
 GameObject:
@@ -1505,7 +1505,7 @@ GameObject:
   - component: {fileID: 615169917}
   - component: {fileID: 615169916}
   - component: {fileID: 615169918}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PISO_5_LAVA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1699,7 +1699,7 @@ GameObject:
   - component: {fileID: 701907928}
   - component: {fileID: 701907933}
   m_Layer: 0
-  m_Name: 1
+  m_Name: DEMIAN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1718,6 +1718,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 3
+  verticalSpeed: 3
+  groundCheck: {fileID: 1280623912}
+  checkradius: 0.1
+  whatIsground:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!50 &701907929
 Rigidbody2D:
   serializedVersion: 4
@@ -1756,7 +1762,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.85333335, y: 1.1066667}
+    oldSize: {x: 0.6933333, y: 1.1933334}
     newSize: {x: 0.6933333, y: 1.1933334}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1824,7 +1830,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.4731717, y: 2.3765604, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1280623912}
   m_Father: {fileID: 0}
   m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1858,7 +1865,7 @@ GameObject:
   - component: {fileID: 720031667}
   - component: {fileID: 720031666}
   - component: {fileID: 720031665}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PISO_6_LAVA (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1964,7 +1971,7 @@ GameObject:
   m_Component:
   - component: {fileID: 824233500}
   - component: {fileID: 824233499}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PISO_9_LAVA (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2112,7 +2119,7 @@ Transform:
   m_LocalScale: {x: 0.12532508, y: 0.12532508, z: 0.12532508}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &890559036
 GameObject:
@@ -2125,7 +2132,7 @@ GameObject:
   - component: {fileID: 890559039}
   - component: {fileID: 890559038}
   - component: {fileID: 890559037}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PISO_9_LAVA (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2527,7 +2534,7 @@ GameObject:
   - component: {fileID: 1215685809}
   - component: {fileID: 1215685808}
   - component: {fileID: 1215685810}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PISO_9_LAVA (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2623,6 +2630,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.303653, y: 0.13006306}
   m_EdgeRadius: 0
+--- !u!1 &1280623911
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1280623912}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1280623912
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280623911}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.563, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 701907932}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1328640492
 GameObject:
   m_ObjectHideFlags: 0
@@ -2800,7 +2837,7 @@ Transform:
   m_LocalScale: {x: 0.060974747, y: 0.060974747, z: 0.060974747}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1459556222
 Animator:
@@ -2899,7 +2936,7 @@ Transform:
   m_LocalScale: {x: 0.12532508, y: 0.12532508, z: 0.12532508}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1556988177
 GameObject:
@@ -2980,7 +3017,7 @@ Transform:
   m_LocalScale: {x: 0.060974747, y: 0.060974747, z: 0.060974747}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1556988180
 Animator:
@@ -3012,7 +3049,7 @@ GameObject:
   - component: {fileID: 1562770406}
   - component: {fileID: 1562770405}
   - component: {fileID: 1562770404}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PISO_9_LAVA (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3347,7 +3384,7 @@ Transform:
   m_LocalScale: {x: 0.21396862, y: 0.21396862, z: 0.21396862}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1896467867
 GameObject:
@@ -3461,7 +3498,7 @@ GameObject:
   - component: {fileID: 1921004692}
   - component: {fileID: 1921004691}
   - component: {fileID: 1921004693}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PISO_9_LAVA (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3671,7 +3708,7 @@ GameObject:
   - component: {fileID: 2102055840}
   - component: {fileID: 2102055839}
   - component: {fileID: 2102055841}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PISO_5_LAVA (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3846,7 +3883,7 @@ Transform:
   m_LocalScale: {x: 0.060974747, y: 0.060974747, z: 0.060974747}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &2142475861
 Animator:
