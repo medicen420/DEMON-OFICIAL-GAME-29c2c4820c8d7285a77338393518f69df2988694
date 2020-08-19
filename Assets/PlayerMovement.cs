@@ -24,6 +24,11 @@ public class PlayerMovement : MonoBehaviour
     //esta variable 
     private bool doubleJumped;
 
+    //Aqui sabremos en que posicion se esta disparando el proyectil
+    public Transform bulletSpawner;
+    //
+    public GameObject bulletPrefap;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
 
         PlayerJump();
         PlayerMov();
+        PlayerShoting();
         
         
     }
@@ -89,5 +95,14 @@ public class PlayerMovement : MonoBehaviour
             doubleJumped = true;
         }
 
+    }
+
+    public void PlayerShoting()
+    {
+        if (Input.GetButtonDown("Shoot"))
+        {
+            Instantiate(bulletPrefap, bulletSpawner.position, bulletSpawner.rotation);
+               
+        }
     }
 }
