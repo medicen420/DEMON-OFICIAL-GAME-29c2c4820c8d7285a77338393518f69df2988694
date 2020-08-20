@@ -27,9 +27,9 @@ public class Diamante : MonoBehaviour
             Puntaje.score += puntos;
             Debug.Log("ooo un diamante");
             Destroy(gameObject);
-            if (Puntaje.score == 24)
+            if (Puntaje.score == 1)
             {
-                SceneManager.LoadScene("WIN");
+                SceneManager.LoadScene("JEFE");
                 Debug.Log("listooo");
             }
           

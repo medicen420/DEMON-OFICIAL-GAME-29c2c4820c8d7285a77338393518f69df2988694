@@ -16,6 +16,9 @@ TagManager:
   - Calavera_2
   - PisoLava
   - JEFE
+  - LifeBar
+  - Plasma
+  - ExtraLife
   layers:
   - Default
   - TransparentFX

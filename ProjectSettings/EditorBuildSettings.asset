@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/INTRO.unity
     guid: 2f54690c6a7db194e8951c1a4c953ac1
+  - enabled: 1
+    path: Assets/Scenes/JEFE.unity
+    guid: 510c296ad2478a543bf65eeb2adc9633
   m_configObjects: {}

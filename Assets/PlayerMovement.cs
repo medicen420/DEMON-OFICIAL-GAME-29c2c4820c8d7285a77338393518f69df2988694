@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -21,6 +22,14 @@ public class PlayerMovement : MonoBehaviour
 
     private bool grounded;
 
+
+    public GameObject calavera;
+    public GameObject calavera2;
+    public GameObject ojo;
+    public GameObject ojo2;
+    public GameObject vampiro;
+    public GameObject ojo_vertical;
+
     //esta variable 
     private bool doubleJumped;
 
@@ -39,8 +48,8 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         grounded = Physics2D.OverlapCircle(groundCheck.position, checkradius, whatIsground);
-        
-        
+
+
     }
 
     // Update is called once per frame
@@ -56,13 +65,48 @@ public class PlayerMovement : MonoBehaviour
         PlayerJump();
         PlayerMov();
         PlayerShoting();
-        
-        
+
+
     }
+
+    //aqui indicamos a mi personaje que al momento de collisionar con
+    //una plataforma o un game object en este caso denominado bajo el nombre de la etiqueta "Platform"
+    //mi personaje se emparentara al transform de mi plataforma 
+
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        if (collision.gameObject.tag == "Platform")
+        {
+
+            gameObject.transform.SetParent(collision.gameObject.transform);
+            Debug.Log("estoy aqui");
+
+        }
+
+    }
+    //para desenparentarme de el tranform de mi plataforma 
+    //colocamos un OnCollisionExit2D 
+    //al poner esto estamos indicando que cuando salga de dicha colision regresara a 
+    //su tranform normal
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Platform")
+        {
+            Debug.Log("no estoy aqui");
+            gameObject.transform.parent = null;
+
+        }
+
+
+    }
+
 
     public void PlayerMov()
     {
-        if(Input.GetAxis("Horizontal") > 0)
+        if (Input.GetAxis("Horizontal") > 0)
         {
             playerRB.velocity = new Vector2(playerSpeed, playerRB.velocity.y);
             transform.localScale = new Vector3(1, 1, 1);
@@ -77,7 +121,7 @@ public class PlayerMovement : MonoBehaviour
         //No importa hacia donde me estoy moviendo siempre el valor va a ser positivo
         playerAnim.SetFloat("speed", Mathf.Abs(playerRB.velocity.x));
 
-        
+
     }
 
     public void PlayerJump()
@@ -102,7 +146,50 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Shoot"))
         {
             Instantiate(bulletPrefap, bulletSpawner.position, bulletSpawner.rotation);
-               
+
         }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Calavera")
+        {
+            Debug.Log("aqui esta mi calavera");
+            Destroy(calavera);
+        }
+        if (collision.gameObject.tag == "Ojo")
+        {
+            Debug.Log("aqui esta mi calavera");
+            Destroy(ojo);
+        }
+        if (collision.gameObject.tag == "Ojo_2")
+        {
+            Debug.Log("aqui esta mi calavera");
+            Destroy(ojo2);
+        }
+        if (collision.gameObject.tag == "Gard")
+        {
+            Debug.Log("aqui esta mi calavera");
+            Destroy(vampiro);
+
+        }
+        if (collision.gameObject.tag == "Calavera_2")
+        {
+            Debug.Log("aqui esta mi calavera");
+            Destroy(calavera2);
+
+        }
+        if (collision.gameObject.tag == "ojo_vertical")
+        {
+            Debug.Log("aqui esta mi ojo");
+            Destroy(ojo_vertical);
+
+        }
+        if (collision.gameObject.tag == "PisoLava")
+        {
+            SceneManager.LoadScene("LOSER");
+        }
+
+
+
     }
 }

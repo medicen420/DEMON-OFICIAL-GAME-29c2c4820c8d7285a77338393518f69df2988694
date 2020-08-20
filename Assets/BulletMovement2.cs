@@ -1,11 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BulletMovement2 : MonoBehaviour
 {   //Mandamos llamar al transform de nuestro player
     public GameObject player;
     private Transform playertrans;
+
+    //Mandamos llamar al código Movimiento
+    Movimiento mov;
+    //Mandamos llamar a nuestro Rigidbody para que nuestro personaje pueda moverse
+    //y debe de ser de tipo 2D
+    Rigidbody2D rb2D;
 
 
     private Rigidbody2D bulletRB;
@@ -14,6 +21,11 @@ public class BulletMovement2 : MonoBehaviour
 
     public float bulletlife;
 
+    public GameObject calavera;
+    public GameObject calavera2;
+    public GameObject ojo;
+    public GameObject ojo2;
+    public GameObject vampiro;
     //Para mandar a llamar primero a estos metodos utilizamos Awake
     void Awake()
     {
@@ -27,8 +39,10 @@ public class BulletMovement2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        mov = GetComponent<Movimiento>();
+        rb2D = GetComponent<Rigidbody2D>();
         //Si el valor es positivo esta mirando a la... DERECHA
-        if(playertrans.localScale.x > 0)
+        if (playertrans.localScale.x > 0)
         {
             bulletRB.velocity = new Vector2(bulletSpeed, bulletRB.velocity.y);
             //Este es el transform que controla mi bala
@@ -56,4 +70,45 @@ public class BulletMovement2 : MonoBehaviour
         Destroy(gameObject, bulletlife);
         
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Calavera")
+        {
+            Debug.Log("aqui esta mi calavera");
+            Destroy(calavera);
+        }
+        if (collision.gameObject.tag == "Ojo")
+        {
+            Debug.Log("aqui esta mi calavera");
+            Destroy(ojo);
+        }
+        if (collision.gameObject.tag == "Ojo_2")
+        {
+            Debug.Log("aqui esta mi calavera");
+            Destroy(ojo2);
+        }
+        if (collision.gameObject.tag == "Gard")
+        {
+            Debug.Log("aqui esta mi calavera");
+            Destroy(vampiro);
+
+        }
+        if (collision.gameObject.tag == "Calavera_2")
+        {
+            Debug.Log("aqui esta mi calavera");
+            Destroy(calavera2);
+
+        }
+        
+        //Estas son las lineas de codigo para el jefe final 
+        if (collision.gameObject.tag == "JEFE")
+        {
+
+            Debug.Log("PIZZA");
+        }
+
+
+
+    }
+    
 }
